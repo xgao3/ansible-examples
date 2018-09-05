@@ -7,10 +7,10 @@
     username: admin
   tasks:
   - name: Stop and disable firewalld.
-     service:
-       name: firewalld
-       state: stopped
-       enabled: False
+    service:
+      name: firewalld
+      state: stopped
+      enabled: False
        
   - name: Install HTTP
     yum: 
