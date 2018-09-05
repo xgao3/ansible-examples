@@ -1,6 +1,7 @@
 ---
 - name: add mysql community repo
   command: sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+  ignore_errors: yes
   args:
     warn: no
     
