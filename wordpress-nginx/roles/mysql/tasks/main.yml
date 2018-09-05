@@ -1,4 +1,9 @@
 ---
+- name: add mysql community repo
+  command: sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+  args:
+    warn: no
+    
 - name: Install Mysql package
   yum: name={{ item }} state=present
   with_items:
