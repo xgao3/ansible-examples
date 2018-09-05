@@ -1,0 +1,26 @@
+--- 
+- hosts: all
+  remote_user: root
+  connection: ssh
+  gather_facts: yes
+  vars:
+    username: admin
+  tasks:
+  - name: Stop and disable firewalld.
+     service:
+       name: firewalld
+       state: stopped
+       enabled: False
+       
+  - name: Install HTTP
+    yum: 
+      name: httpd
+      state: latest
+    notify:
+    - startservice
+  handlers:
+
+  - name: startservice
+    service:
+      name: httpd
+      state: restarted
